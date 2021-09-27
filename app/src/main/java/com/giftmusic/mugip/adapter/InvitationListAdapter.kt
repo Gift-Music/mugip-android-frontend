@@ -2,6 +2,7 @@ package com.giftmusic.mugip.adapter
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.VectorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,7 @@ class InvitationListAdapter(list: List<OtherUserInvite>) :
 
 
         fun bind(item: OtherUserInvite){
-            val defaultImage = ResourcesCompat.getDrawable(itemView.resources, R.drawable.ic_profile, null) as BitmapDrawable
+            val defaultImage = ResourcesCompat.getDrawable(itemView.resources, R.drawable.ic_profile, null) as VectorDrawable
 
             userProfileImage.setImageDrawable(defaultImage)
             userProfileID.text = item.userID
