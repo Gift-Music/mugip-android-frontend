@@ -65,6 +65,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         openMapActivityButton = findViewById(R.id.center_button)
         openProfileActivityButton.setOnClickListener {
             supportFragmentManager.commit {
+                Log.d("user", user.toString())
                 if(supportFragmentManager.findFragmentById(R.id.content_main)!! is MainFragment && user != null){
                     openMapActivityButton.isSelected = false
                     openPlayListActivityButton.isSelected = false
@@ -168,6 +169,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         if(inputStream != null){
                             val returnBody = conn.inputStream.bufferedReader().use(BufferedReader::readText)
                             val responseJson = JSONObject(returnBody.trim())
+                            Log.d("response json", responseJson.toString())
                             if(responseJson.has("user_id") && responseJson.has("user_name") &&
                                 responseJson.has("email") && responseJson.has("user_nickname")){
                                 user = User(
@@ -190,6 +192,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                             }
                         }
                     }
+                    401 -> moveToLoginActivity()
                     else -> errorMessage = conn.responseCode.toString()
                 }
             }
@@ -293,6 +296,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     private fun moveToLoginActivity(){
         Log.d("Back", "Back to Login!")
+        val prefManager = this.getSharedPreferences("app", Context.MODE_PRIVATE)
+        val editor = prefManager.edit()
+        editor.putString("access_token", null).apply()
+        editor.putString("refresh_token", null).apply()
         val intent = Intent(this, LoginActivity::class.java)
         intent.putExtra("logout", true)
         startActivity(intent)
