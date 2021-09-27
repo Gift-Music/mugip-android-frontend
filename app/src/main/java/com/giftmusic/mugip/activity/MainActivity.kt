@@ -294,7 +294,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun moveToLoginActivity(){
         Log.d("Back", "Back to Login!")
         val intent = Intent(this, LoginActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+        intent.putExtra("logout", true)
         startActivity(intent)
         finish()
     }

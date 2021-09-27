@@ -54,7 +54,7 @@ class LoginActivity : BaseActivity(), CoroutineScope {
         val prefManager = this.getSharedPreferences("app", Context.MODE_PRIVATE)
         val accessToken = prefManager.getString("access_token", null)
         val refreshToken = prefManager.getString("refresh_token", null)
-        if(accessToken != null && refreshToken != null){
+        if(accessToken != null && refreshToken != null && !intent.getBooleanExtra("logout", false)){
             signInWithToken(accessToken, refreshToken)
         }
 
