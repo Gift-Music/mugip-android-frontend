@@ -170,12 +170,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                             val returnBody = conn.inputStream.bufferedReader().use(BufferedReader::readText)
                             val responseJson = JSONObject(returnBody.trim())
                             Log.d("response json", responseJson.toString())
-                            if(responseJson.has("user_id") && responseJson.has("user_name") &&
-                                responseJson.has("email") && responseJson.has("user_nickname")){
+                            if(responseJson.has("id") &&
+                                responseJson.has("email") && responseJson.has("nickname")){
                                 user = User(
-                                    responseJson.getString("user_id"),
-                                    responseJson.getString("user_nickname"),
-                                    responseJson.getString("user_name"),
+                                    responseJson.getString("id"),
+                                    responseJson.getString("nickname"),
                                     responseJson.getString("email"),
                                     null
                                 )
