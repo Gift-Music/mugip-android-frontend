@@ -94,7 +94,9 @@ class LoginActivity : BaseActivity(), CoroutineScope {
 
         // 로그인 버튼 클릭했을 때 -> 이메일 형식에 맞는지 검증
         loginButton.setOnClickListener{
-            if(TextUtils.isEmpty(loginID.text.toString()) || !android.util.Patterns.EMAIL_ADDRESS.matcher(loginID.text.toString() as CharSequence).matches() || TextUtils.isEmpty(loginPW.text.toString())) {
+            if(TextUtils.isEmpty(loginID.text.toString()) ||
+                !android.util.Patterns.EMAIL_ADDRESS.matcher(loginID.text.toString() as CharSequence).matches() ||
+                TextUtils.isEmpty(loginPW.text.toString())) {
                 showDialog("이메일 입력 오류", "올바른 이메일 형식이 아닙니다.")
             } else {
                 signInWithEmail(loginID.text.toString(), loginPW.text.toString())
@@ -200,7 +202,6 @@ class LoginActivity : BaseActivity(), CoroutineScope {
 
     private fun signInWithToken(accessToken: String, refreshToken: String){
         val jwtToken = JWT(accessToken)
-        Log.d("Expired at", jwtToken.expiresAt.toString())
         if(jwtToken.isExpired(100)){
             var refreshFailed = true
             var errorCode = -1
@@ -233,7 +234,6 @@ class LoginActivity : BaseActivity(), CoroutineScope {
                             if(inputStream != null){
                                 val returnBody = conn.inputStream.bufferedReader().use(BufferedReader::readText)
                                 val responseJson = JSONObject(returnBody.trim())
-                                Log.d("receive data", responseJson.toString())
                                 if(responseJson.has("access_token") && responseJson.has("refresh_token")){
                                     refreshFailed = false
                                     editor.putString("access_token", responseJson["access_token"].toString()).apply()
@@ -300,7 +300,6 @@ class LoginActivity : BaseActivity(), CoroutineScope {
                         if(inputStream != null){
                             val returnBody = conn.inputStream.bufferedReader().use(BufferedReader::readText)
                             val responseJson = JSONObject(returnBody.trim())
-                            Log.d("receive data", responseJson.toString())
                             if(responseJson.has("access_token") && responseJson.has("refresh_token")){
                                 loginFailed = false
                                 editor.putString("access_token", responseJson["access_token"].toString()).apply()
@@ -367,7 +366,6 @@ class LoginActivity : BaseActivity(), CoroutineScope {
                         if(inputStream != null){
                             val returnBody = conn.inputStream.bufferedReader().use(BufferedReader::readText)
                             val responseJson = JSONObject(returnBody.trim())
-                            Log.d("receive data", responseJson.toString())
                             if(responseJson.has("access_token") && responseJson.has("refresh_token")){
                                 loginFailed = false
                                 editor.putString("access_token", responseJson["access_token"].toString()).apply()

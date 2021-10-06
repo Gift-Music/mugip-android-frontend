@@ -187,7 +187,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
                                 // 사용자에 대한 알림을 받을 수 있도록 FCM 구독
                                 Firebase.messaging.subscribeToTopic(user!!.userID).addOnCompleteListener {
-                                    Log.d("FCM topic", user!!.userID)
+
                                 }
                             }
                         }
@@ -254,7 +254,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         if(inputStream != null){
                             val returnBody = conn.inputStream.bufferedReader().use(BufferedReader::readText)
                             val responseJson = JSONObject(returnBody.trim())
-                            Log.d("receive data", responseJson.toString())
                             if(responseJson.getBoolean("successed")){
                                 logoutFailed = false
                             }
@@ -295,7 +294,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun moveToLoginActivity(){
-        Log.d("Back", "Back to Login!")
         val prefManager = this.getSharedPreferences("app", Context.MODE_PRIVATE)
         val editor = prefManager.edit()
         editor.putString("access_token", null).apply()
