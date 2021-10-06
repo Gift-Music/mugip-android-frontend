@@ -46,6 +46,7 @@ class ProfileFragment(val user: User) : Fragment() {
         val uploadButton = layout.findViewById<Button>(R.id.upload_button)
         uploadButton.setOnClickListener {
             val intent = Intent(this.activity, UploadActivity::class.java)
+            intent.putExtra("user_id", user.userID)
             startActivity(intent)
         }
 

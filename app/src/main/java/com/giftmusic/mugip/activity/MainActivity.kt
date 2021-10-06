@@ -291,16 +291,5 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         val dialog = dialogBuilder.create()
         dialog.show()
     }
-
-    private fun moveToLoginActivity(){
-        val prefManager = this.getSharedPreferences("app", Context.MODE_PRIVATE)
-        val editor = prefManager.edit()
-        editor.putString("access_token", null).apply()
-        editor.putString("refresh_token", null).apply()
-        val intent = Intent(this, LoginActivity::class.java)
-        intent.putExtra("logout", true)
-        startActivity(intent)
-        finish()
-    }
     
 }
