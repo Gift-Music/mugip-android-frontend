@@ -10,3 +10,5 @@ Mugip은 사용자 주변의 사람들과 플레이리스트를 공유하는 소
 👉 [웹 홈 화면 바로가기](https://gift-music.github.io/mugip-android-frontend/)
 
 위 링크에서 MUGIP 홈화면을 정적으로 체험해보세요 (GitHub Pages 배포).
+
+--> 수정된 ver. 🔗 [📍 위치 기반 지도 페이지 보기](https://gift-music.github.io/mugip-android-frontend/docs/index2.html)
