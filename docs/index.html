@@ -60,7 +60,7 @@
   </header>
 
   <div class="content">
-    <div id="map"></div> <!-- 여기에 id="map"으로 변경 -->
+    <div id="map"></div>
 
     <div class="card">
       <h3>👤 사용자 A</h3>
@@ -83,44 +83,26 @@
     <button onclick="alert('프로필')">👤</button>
   </nav>
 
-  <!-- 지도 로직 -->
+  <!-- ✅ 지도 초기화 함수 -->
   <script>
     function initMap() {
-      const center = { lat: 37.5665, lng: 126.9780 }; // 서울 중심
+      const center = { lat: 37.5665, lng: 126.9780 }; // 서울
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 12,
-        center: center
+        center: center,
       });
 
       new google.maps.Marker({
         position: center,
         map: map,
-        title: "서울 사용자"
+        title: "서울 사용자",
       });
     }
   </script>
 
-  <!-- Google Maps API 불러오기 -->
+  <!-- ✅ Google Maps API 연결 -->
   <script async defer
-
-    <script>
-  function initMap() {
-    const center = { lat: 37.5665, lng: 126.9780 }; // 서울 좌표
-    const map = new google.maps.Map(document.querySelector(".map"), {
-      zoom: 12,
-      center: center,
-    });
-
-    // 마커 추가
-    new google.maps.Marker({
-      position: center,
-      map: map,
-      title: "서울 사용자",
-    });
-  }
-</script>
-
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7YVC98G7_V0qt4nkToIZ0zI1eFxfdMFQ&callback=initMap">
   </script>
 </body>
-</html> 
+</html>
