@@ -1,12 +1,88 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>MUGIP Android</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MUGIP Web</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+    }
+    header {
+      background-color: #3366cc;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .content {
+      padding: 2rem;
+      text-align: center;
+    }
+    .map {
+      width: 100%;
+      height: 300px;
+      background: #ddd;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 1rem auto;
+      max-width: 400px;
+      text-align: left;
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #ccc;
+    }
+    nav button {
+      background: none;
+      border: none;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>🎵 MUGIP 안드로이드 프론트엔드</h1>
-  <p>이 페이지는 뮤집 앱의 GitHub Pages 소개용 페이지입니다.</p>
-  <p><a href="https://github.com/Gift-Music/mugip-android-frontend">소스코드 보기</a></p>
+  <header>
+    <h1>🎵 MUGIP</h1>
+    <p>지도 기반 플레이리스트 공유</p>
+  </header>
+
+  <div class="content">
+    <div class="map">[지도 영역]</div>
+
+    <div class="card">
+      <h3>👤 사용자 A</h3>
+      <p>📍 위치: 서울 강남</p>
+      <p>🎶 추천 음악: <strong>NewJeans - Super Shy</strong></p>
+    </div>
+
+    <div class="card">
+      <h3>👤 사용자 B</h3>
+      <p>📍 위치: 홍대입구</p>
+      <p>🎶 추천 음악: <strong>Zior Park - CHRISTIAN</strong></p>
+    </div>
+  </div>
+
+  <nav>
+    <button onclick="alert('홈')">🏠</button>
+    <button onclick="alert('검색')">🔍</button>
+    <button onclick="alert('업로드')">⬆️</button>
+    <button onclick="alert('알림')">🔔</button>
+    <button onclick="alert('프로필')">👤</button>
+  </nav>
 </body>
 </html>
+
