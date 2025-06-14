@@ -83,10 +83,10 @@
     <button onclick="alert('프로필')">👤</button>
   </nav>
 
-  <!-- ✅ 지도 초기화 함수 -->
+  <!-- ✅ Google Maps 초기화 함수 -->
   <script>
     function initMap() {
-      const center = { lat: 37.5665, lng: 126.9780 }; // 서울
+      const center = { lat: 37.5665, lng: 126.9780 }; // 서울 좌표
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 12,
         center: center,
@@ -95,14 +95,12 @@
       new google.maps.Marker({
         position: center,
         map: map,
-        title: "서울 사용자",
+        title: "서울 사용자"
       });
     }
   </script>
 
-  <!-- ✅ Google Maps API 연결 -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7YVC98G7_V0qt4nkToIZ0zI1eFxfdMFQ&callback=initMap">
-  </script>
+  <!-- ✅ Maps API 불러오기 (제대로 닫힌 script) -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7YVC98G7_V0qt4nkToIZ0zI1eFxfdMFQ&callback=initMap"></script>
 </body>
 </html>
