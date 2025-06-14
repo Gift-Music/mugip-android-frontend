@@ -102,6 +102,24 @@
 
   <!-- Google Maps API 불러오기 -->
   <script async defer
+
+    <script>
+  function initMap() {
+    const center = { lat: 37.5665, lng: 126.9780 }; // 서울 좌표
+    const map = new google.maps.Map(document.querySelector(".map"), {
+      zoom: 12,
+      center: center,
+    });
+
+    // 마커 추가
+    new google.maps.Marker({
+      position: center,
+      map: map,
+      title: "서울 사용자",
+    });
+  }
+</script>
+
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7YVC98G7_V0qt4nkToIZ0zI1eFxfdMFQ&callback=initMap">
   </script>
 </body>
